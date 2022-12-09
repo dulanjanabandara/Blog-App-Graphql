@@ -1,5 +1,5 @@
-import { Context } from "../index";
-import { Post } from ".prisma/client";
+import { Context } from "../../index";
+import { Post, Prisma } from ".prisma/client";
 
 interface PostArgs {
   post: {
@@ -13,7 +13,7 @@ interface PostPayloadType {
   post: Post | null;
 }
 
-export const Mutation = {
+export const postResolvers = {
   postCreate: async (_: any, { post }: PostArgs, { prisma }: Context): Promise<PostPayloadType> => {
     const { title, content } = post;
     if (!title || !content) {
@@ -84,4 +84,6 @@ export const Mutation = {
       post,
     };
   },
+
+  signup: () => {},
 };
