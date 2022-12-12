@@ -2,7 +2,7 @@ import { ApolloServer, gql } from "apollo-server";
 import { Prisma, PrismaClient } from "@prisma/client";
 
 import { typeDefs } from "./schema";
-import { Query, Mutation, Profile } from "./resolvers";
+import { Query, Mutation, Profile, Post, User } from "./resolvers";
 import { getUserFromToken } from "./utils/getUserFromToken";
 
 const prisma = new PrismaClient();
@@ -19,6 +19,9 @@ const server = new ApolloServer({
   resolvers: {
     Query,
     Mutation,
+    Profile,
+    Post,
+    User
   },
   context: async ({ req }: any): Promise<Context> => {
     const userInfo = await getUserFromToken(req.headers.authorization);
