@@ -15,4 +15,8 @@ export const Query = {
       ],
     });
   },
+
+  profile: async (_: any, { userId }: { userId: string }, { prisma, userInfo }: Context) => {
+    return await prisma.profile.findUnique({ where: { userId: Number(userId) } });
+  },
 };

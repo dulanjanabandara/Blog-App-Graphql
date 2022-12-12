@@ -2,7 +2,7 @@ import { ApolloServer, gql } from "apollo-server";
 import { Prisma, PrismaClient } from "@prisma/client";
 
 import { typeDefs } from "./schema";
-import { Query, Mutation } from "./resolvers";
+import { Query, Mutation, Profile } from "./resolvers";
 import { getUserFromToken } from "./utils/getUserFromToken";
 
 const prisma = new PrismaClient();
